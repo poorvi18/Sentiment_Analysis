@@ -1,0 +1,35 @@
+ {% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <h2>Take Appointment</h2>
+         <div class="media" style="
+                       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                        transition: 1s;display:block; padding:2%; margin-left:5%;margin-bottom:2%;">
+
+            <div class="col-sm-12 md-8 mt-4">
+            <form method="get" action="/register">
+                 <h3>Register Now!!!</h3>
+                 <button  style="font-size:130% ; padding:1%;background-color:black;" class="btn btn-primary" >Sign Up</button>
+
+            </form>
+            </div>
+         </div>
+
+         <div class="media" style="
+                  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                  transition: 1s;display:block;padding:2%; margin-left:5%;margin-bottom:2%;">
+
+          <div class="col-sm-12 md-8 mt-4">
+           <form method="get" action="/login">
+            <h3>Already have  an account</h3>
+            <button  style="font-size:130% ; padding:1%;background-color:black;" class="btn btn-primary" >Sign In</button>
+
+           </form>
+
+         </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

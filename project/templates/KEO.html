@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+<style>
+#mid{
+    background-color: rgb(241, 250, 252);
+}
+
+#con p:first-child {
+    font-style: italic;
+    color: #333333;
+}
+
+#con p:first-child:first-letter {
+    font-size: 250%;
+    margin: 10px 7px 0;
+    float: left;
+}
+
+img{
+    width:40%;
+    height:30%;
+}
+
+h2, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+	font-weight:500;
+}
+
+</style>
+{% block content %}
+<div class="jumbotron" style=" background-image: url('https://i.gifer.com/7Ntk.gif');color:cornsilk;">
+    <div class="container">
+      <h1 class="display-3" id="neon" style="color: cornsilk;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;">Know each Other</h1>
+      <p id="con"> This section is made so that we interact with each other and share problems with the similar ones who cope up with that by holding their will power.</p>
+
+    </div>
+</div>
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}

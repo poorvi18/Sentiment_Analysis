@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
+{% block content %}
+ <div class="col-sm-12 col-md-10 offset-1" id='mid'>
+   <div class="jumbotron" style=" background-image: url('https://i.gifer.com/7Ntk.gif');
+        color:cornsilk;">
+    <div class="container">
+      <h1 class="display-3" id="neon" style="color: cornsilk;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;">Sentiment Analysis</h1>
+
+           <p> Sentiment Analysis is the process of ‘computationally’ determining whether a piece of writing is positive, negative or neutral.
+           It’s also known as opinion mining, deriving the opinion or attitude of a writer. </p></div>
+ </div>
+        <p class="col-sm-12 col-md-10   mt-4">People of all ages to suffer from mental health issues like anxiety, depression, and even suicide ideation.
+        Contemporary psychology tells us that this is expected simply because we live on an emotional roller coaster every day.
+        There’s absolutely no question that the COVID-19 pandemic plays an essential role in mental health analysis.
+          The year 2020 turned our lives upside down.Sentiment analysis also is used to monitor and analyse social phenomena,
+          for the spotting of potentially dangerous situations.</p>
+            <img src='https://sentimeter.io/wp-content/uploads/2016/11/sentiment-analysis.gif'style="height:40%;width:40%;">
+          <p id="left" class="col-10 col-md-4 " style="float:left; display:inline-block">
+            VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment
+        analysis tool that is specifically attuned to sentiments expressed in social media. VADER uses a combination of A sentiment lexicon is
+        a list of lexical features (e.g., words) which are generally labeled according to their semantic orientation as either positive or negative.
+        VADER not only tells about the Positivity and Negativity score but also tells us about how positive or negative a sentiment is.</p>
+
+          <p id="right" class="col-10 col-md-4 " style="float:left; display:inline-block">Fine-grained Sentiment Analysis involves determining the polarity of the opinion.
+          It can be a simple binary positive/negative sentiment differentiation. This type can also go into the more higher specification (for example,
+          very positive, neutral, negative, critical).</p>
+</div></div>
+
+     <div class="col-sm-12 md-10 offset-2 mt-6">
+
+          <h3 class="offset-2 mt-4">ANSWER 5 SIMPLE QUESTIONS</h3>
+
+
+
+
+
+     <form method="POST" action="/home.html" class="needs-validation" novalidate  >
+
+        <fieldset class="form-group">
+        <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+       <div class="form-row">
+         <div class="col-md-6 mb-3">
+           <label for="validationTooltip01">First name</label>
+           <input type="text" class="form-control" id="validationTooltip01"  required>
+           <div class="valid-tooltip">
+             Looks good!
+           </div>
+         </div>
+         <div class="col-md-6 mb-3">
+           <label for="validationTooltip02">Last name</label>
+           <input type="text" class="form-control" id="validationTooltip02" required>
+           <div class="valid-tooltip">
+             Looks good!
+           </div>
+         </div>
+       </div>
+       <div class="form-row">
+         <div class="col-md-10 mb-3">
+           <label for="validationTextarea">Q1- What you've been thinking from past few days?</label>
+           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           <div class="valid-tooltip">
+            Looks good!
+           </div>
+         </div>
+         </div>
+         <div class="form-row">
+         <div class="col-md-10 mb-3">
+           <label for="validationTextarea">Q2- How is your social life?</label>
+           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           <div class="valid-tooltip">
+            Looks good!
+           </div>
+         </div>
+         </div>
+
+         <div class="form-row">
+         <div class="col-md-10 mb-3">
+           <label for="validationTextarea">Q3- Describe your workplace.</label>
+           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           <div class="valid-tooltip">
+            Looks good!
+           </div>
+         </div>
+         </div>
+
+
+         <div class="form-row">
+         <div class="col-md-10 mb-3">
+           <label for="validationTextarea">Q4- Comment on your family life.</label>
+           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           <div class="valid-tooltip">
+            Looks good!
+           </div>
+         </div>
+         </div>
+
+         <div class="form-row">
+         <div class="col-md-10 mb-3">
+           <label for="validationTextarea">Q5-How often do you procrastinate about that status of your personal goals in life?</label>
+           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           <div class="valid-tooltip">
+            Looks good!
+           </div>
+         </div>
+         </div>
+
+
+     </fieldset>
+     </form>
+     <form method="get" action="/about">
+
+     <button class="btn btn-success" type="submit" >Result</button>
+     </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
