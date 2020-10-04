@@ -85,8 +85,17 @@
        </div>
        <div class="form-row">
          <div class="col-md-10 mb-3">
-           <label for="validationTextarea">Q1- What you've been thinking from past few days?</label>
-           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           {{ form.q1.label(class="form-control-label") }}
+                    {% if form.q1.errors %}
+                        {{ form.q1(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.q.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q1(class="form-control form-control-lg") }}
+                    {% endif %}
            <div class="valid-tooltip">
             Looks good!
            </div>
@@ -94,39 +103,71 @@
          </div>
          <div class="form-row">
          <div class="col-md-10 mb-3">
-           <label for="validationTextarea">Q2- How is your social life?</label>
-           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           {{ form.q2.label(class="form-control-label") }}
+                    {% if form.q2.errors %}
+                        {{ form.q2(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.q2.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q2(class="form-control form-control-lg") }}
+                    {% endif %}
            <div class="valid-tooltip">
             Looks good!
            </div>
          </div>
          </div>
-
          <div class="form-row">
          <div class="col-md-10 mb-3">
-           <label for="validationTextarea">Q3- Describe your workplace.</label>
-           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           {{ form.q3.label(class="form-control-label") }}
+                    {% if form.q3.errors %}
+                        {{ form.q3(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.q3.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q3(class="form-control form-control-lg") }}
+                    {% endif %}
            <div class="valid-tooltip">
             Looks good!
            </div>
          </div>
          </div>
-
-
          <div class="form-row">
          <div class="col-md-10 mb-3">
-           <label for="validationTextarea">Q4- Comment on your family life.</label>
-           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           {{ form.q4.label(class="form-control-label") }}
+                    {% if form.q4.errors %}
+                        {{ form.q4(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.q4.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q4(class="form-control form-control-lg") }}
+                    {% endif %}
            <div class="valid-tooltip">
             Looks good!
            </div>
          </div>
          </div>
-
          <div class="form-row">
          <div class="col-md-10 mb-3">
-           <label for="validationTextarea">Q5-How often do you procrastinate about that status of your personal goals in life?</label>
-           <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write atleast 20 words" required></textarea>
+           {{ form.q5.label(class="form-control-label") }}
+                    {% if form.q5.errors %}
+                        {{ form.q5(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.q5.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q5(class="form-control form-control-lg") }}
+                    {% endif %}
            <div class="valid-tooltip">
             Looks good!
            </div>
@@ -135,10 +176,9 @@
 
 
      </fieldset>
-     </form>
-     <form method="get" action="/about">
-
-     <button class="btn btn-success" type="submit" >Result</button>
+     <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+     </div>
      </form>
 
     </div>

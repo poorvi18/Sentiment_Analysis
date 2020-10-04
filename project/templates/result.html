@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% endblock %}
+
+
+
+
+{% extends "layout.html" %}
+
+<script>
+function myfunction(x){
+    ;
+    if(x=='positive'){
+        var img = document.createElement("img");
+        img.src = 'http://pngimg.com/uploads/smiley/smiley_PNG179.png';
+        img.width = 600;
+        img.height = 600;
+        img.alt = 'happy emoji';
+
+        document.body.appendChild(img);
+        var paragraph = document.getElementById("p");
+
+
+		paragraph.appendChild(text);
+
+    }
+    else if(x=='negative'){
+        var img = document.createElement("img");
+        img.src = 'http://www.clipartbest.com/cliparts/Kcn/o5x/Kcno5xbdi.png';
+        img.width = 600;
+        img.height = 600;
+        img.alt = 'sad emoji';
+        document.body.appendChild(img);
+
+    }
+    else if(x=='critical'){
+        var img = document.createElement("img");
+        img.src = 'http://www.pngmart.com/files/1/Sad-Emoji-PNG-Clipart.png';
+        img.width = 600;
+        img.height = 600;
+        img.alt = 'weeping emoji';
+        document.body.appendChild(img);
+
+    }
+    else{
+        var img = document.createElement("img");
+        img.src = 'https://i.pinimg.com/originals/94/28/b4/9428b47a39da5a233ffbd4fe0374c372.png';
+        img.width = 600;
+        img.height = 600;
+        img.alt = 'normal emoji';
+
+        document.body.appendChild(img);
+
+    }
+}
+</script>
+
+{% block content %}
+
+
+
+<div class="col-sm-12 md-10 offset-1">
+<div class="jumbotron" style=" background-image: url('https://i.gifer.com/7Ntk.gif');
+        color:cornsilk;">
+    <div class="container">
+      <h1 class="display-3" id="neon" style="color: cornsilk;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;">Result</h1>
+</div></div>
+<div class="col-sm-12 md-10 offset-2">
+<img  onload="myfunction({{form.result.data}})">
+<h3>Overall:{{ form.result.data }}</h3>
+
+<label for="disk_d">Compound:</label>
+<meter id="disk_d" value="{{form.result.custom}}">{{form.result.custom/100}}</meter>{{form.result.custom*100}}
+{% if form.result.data  =="critical" || form.result.data  =="negative" %}
+ <form method="get" action="/consultation">
+
+     <button class="btn btn-dark" type="submit" >Need Consultation</button>
+     </form>
+</div></div>
+{% endif %}
+
+{% endblock content %}
+

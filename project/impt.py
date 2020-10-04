@@ -1,8 +1,8 @@
 from datetime import datetime
-from flask import Flask, render_template, url_for, flash, redirect,request
+from flask import Flask, render_template, url_for, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
-from forms import RegistrationForm, LoginForm
-
+from forms import RegistrationForm, LoginForm ,sentimentform ,PostForm
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 
@@ -71,7 +71,23 @@ class Post(db.Model):
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    form=sentimentform()
+    if form.validate_on_submit():
+        sid_obj = SentimentIntensityAnalyzer()
+        sentiment_dict_1 = sid_obj.polarity_scores(form.q1.data)
+        sentiment_dict_2 = sid_obj.polarity_scores(form.q2.data)
+        sentiment_dict_3 = sid_obj.polarity_scores(form.q3.data)
+        sentiment_dict_4 = sid_obj.polarity_scores(form.q4.data)
+        sentiment_dict_5 = sid_obj.polarity_scores(form.q5.data)
+        form.result.data= sentiment_dict_1['compound']+sentiment_dict_2['compound']+sentiment_dict_3['compound']+sentiment_dict_4['compound']+sentiment_dict_5['compound']
+        return redirect(url_for('result'))
+    return render_template('home.html',title='home')
+
+
+@app.route("/result")
+def result():
+    form=sentimentform()
+    return render_template('result.html',title='result',result=form.result.data)
 
 
 @app.route("/about")
@@ -116,7 +132,7 @@ def consultation():
 def KEO():
     posts= PostForm()
     if posts.validate_on_submit():
-        post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        post = Post(title=posts.title.data, content=posts.content.data, author=posts.user)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
